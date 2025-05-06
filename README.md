@@ -78,7 +78,3 @@ python kafka_producer.py
 The application will be available at `http://localhost:5000`
 
 
-## 🙏 Acknowledgments
-
-- Thanks to all contributors who have helped shape this project
-- Special thanks to the open-source community for the amazing tools and libraries
