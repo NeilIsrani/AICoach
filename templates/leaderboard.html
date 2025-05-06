@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weekly Leaderboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Weekly Leaderboard</h1>
+    
+    <h2>Week of {{ week_start_date }}</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Username</th>
+                <th>Fitness Score</th>
+                <th>Total Exercise (min)</th>
+                <th>Total Sleep (hrs)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in leaderboard %}
+            <tr>
+                <td>{{ entry.ranking }}</td>
+                <td>{{ entry.username }}</td>
+                <td>{{ entry.fitness_score }}</td>
+                <td>{{ entry.total_exercise_minutes }}</td>
+                <td>{{ entry.total_sleep_hours }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('users') }}">Users</a>
+        <a href="{{ url_for('fitness_logs') }}">Fitness Logs</a>
+        <a href="{{ url_for('competitions') }}">Competitions</a>
+    </nav>
+</body>
+</html> 

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Competitions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Competitions</h1>
+    
+    <h2>Add New Competition</h2>
+    <form method="POST" action="{{ url_for('competitions') }}">
+        <div>
+            <label for="competition_date">Competition Date:</label>
+            <input type="date" id="competition_date" name="competition_date" required>
+        </div>
+        <div>
+            <label for="competition_location">Location:</label>
+            <input type="text" id="competition_location" name="competition_location" required>
+        </div>
+        <button type="submit">Add Competition</button>
+    </form>
+
+    <h2>Upcoming Competitions</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Competition ID</th>
+                <th>Date</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for competition in competitions %}
+            <tr>
+                <td>{{ competition.competition_id }}</td>
+                <td>{{ competition.competition_date }}</td>
+                <td>{{ competition.competition_location }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('users') }}">Users</a>
+        <a href="{{ url_for('fitness_logs') }}">Fitness Logs</a>
+        <a href="{{ url_for('weekly_leaderboard') }}">Leaderboard</a>
+    </nav>
+</body>
+</html> 
